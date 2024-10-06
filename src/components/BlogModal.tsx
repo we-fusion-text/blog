@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 interface BlogModalProps {
     onClose: () => void;
@@ -10,6 +11,8 @@ export default function BlogModal({ onClose }: BlogModalProps) {
     const [body, setBody] = useState('');
     const [tags, setTags] = useState('');
 
+    const router = useRouter();
+
     const handleSubmit = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -18,6 +21,7 @@ export default function BlogModal({ onClose }: BlogModalProps) {
                 { title, body, tags: tags.split(',') },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
+            router.reload();
             onClose();
         } catch (error) {
             console.error('Error creating blog:', error);
