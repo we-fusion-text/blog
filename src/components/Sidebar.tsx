@@ -10,7 +10,7 @@ export default function Sidebar() {
     }
 
     return (
-        <aside className="w-64 h-screen bg-gray-800 text-white p-6 shadow-lg">
+        <aside className="w-1/4 fixed h-screen bg-gray-800 text-white p-6 shadow-lg">
             <h2 className="text-2xl font-semibold mb-6">Dashboard</h2>
             <button
                 onClick={handleClick}

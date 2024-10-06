@@ -27,7 +27,7 @@ export default function Dashboard() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-gray-100 py-8">
+        <div className="w-3/4 min-h-screen bg-gray-100 py-8">
             <h1 className="text-3xl font-semibold text-center mb-8 text-gray-800">
                 Find Something Interesting today!!
             </h1>
