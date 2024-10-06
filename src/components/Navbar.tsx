@@ -9,7 +9,6 @@ const Navbar = () => {
     const router = useRouter();
 
     useEffect(() => {
-        // Check if the user is logged in by checking for a token in localStorage
         const token = localStorage.getItem('token');
         setIsLoggedIn(!!token);
     }, []);
@@ -30,9 +29,6 @@ const Navbar = () => {
 
                 {/* Links */}
                 <div className="space-x-4">
-                    <Link href="/" className="text-gray-600 hover:text-gray-800">
-                        Home
-                    </Link>
 
                     {isLoggedIn ? (
                         <>
