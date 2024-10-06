@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const SignUp = () => {
     const router = useRouter();
@@ -22,7 +22,6 @@ const SignUp = () => {
         });
 
         if (res.ok) {
-            // Optionally handle successful signup, e.g., redirecting to login
             router.push('/auth/login');
         } else {
             const data = await res.json();
