@@ -31,11 +31,11 @@ const SignUp = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
+            <h1 className="text-2xl text-black font-bold mb-4">Sign Up</h1>
             {error && <p className="text-red-500">{error}</p>}
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
                 <div className="mb-4">
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    <label htmlFor="name" className="block text-sm text-black font-medium mb-2">
                         Name
                     </label>
                     <input
@@ -44,11 +44,11 @@ const SignUp = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
-                        className="border rounded w-full py-2 px-3"
+                        className="border text-black rounded w-full py-2 px-3"
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    <label htmlFor="email" className="block text-black text-sm font-medium mb-2">
                         Email
                     </label>
                     <input
@@ -57,11 +57,11 @@ const SignUp = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="border rounded w-full py-2 px-3"
+                        className="border text-black rounded w-full py-2 px-3"
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="password" className="block text-sm font-medium mb-2">
+                    <label htmlFor="password" className="block text-black text-sm font-medium mb-2">
                         Password
                     </label>
                     <input
@@ -70,7 +70,7 @@ const SignUp = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        className="border rounded w-full py-2 px-3"
+                        className="border text-black rounded w-full py-2 px-3"
                     />
                 </div>
                 <button

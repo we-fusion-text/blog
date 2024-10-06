@@ -48,10 +48,10 @@ const Navbar = () => {
                         </>
                     ) : (
                         <>
-                            <Link href="/login" className="text-gray-600 hover:text-gray-800">
+                            <Link href="/auth/login" className="text-gray-600 hover:text-gray-800">
                                 Login
                             </Link>
-                            <Link href="/signup" className="text-gray-600 hover:text-gray-800">
+                            <Link href="/auth/signup" className="text-gray-600 hover:text-gray-800">
                                 Signup
                             </Link>
                         </>
