@@ -21,7 +21,7 @@ export default function Dashboard() {
     useEffect(() => {
         const fetchBlogs = async () => {
             const { data } = await axios.get('/api/blogs/getBlogs');
-            setBlogs(data);
+            setBlogs(data.blogs);
         };
         fetchBlogs();
     }, []);

@@ -21,15 +21,23 @@ export async function dbConnect() {
 
   if (!cached.promise) {
     const opts = {
-      bufferCommands: false,
+      bufferCommands: true,
     };
 
     console.log("MONGODB_URI", MONGODB_URI);
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-      return mongoose;
-    });
+    cached.promise = mongoose
+      .connect(MONGODB_URI, opts)
+      .then((mongoose) => {
+        console.log("MongoDB connected successfully!");
+        return mongoose;
+      })
+      .catch((err) => {
+        console.error("MongoDB connection error:", err);
+        throw err;
+      });
   }
+
   cached.conn = await cached.promise;
   return cached.conn;
 }

@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
+import dynamic from 'next/dynamic';
+import 'react-quill/dist/quill.snow.css'; // Quill styles
+
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 interface BlogModalProps {
     onClose: () => void;
@@ -18,7 +22,6 @@ export default function BlogModal({ onClose }: BlogModalProps) {
                 { title, body, tags: tags.split(',') },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
-
             window.location.reload();
         } catch (error) {
             console.error('Error creating blog:', error);
@@ -38,11 +41,21 @@ export default function BlogModal({ onClose }: BlogModalProps) {
                     placeholder="Title"
                     className="w-full text-black p-2 mb-4 border border-gray-300 rounded-lg"
                 />
-                <textarea
+                <ReactQuill
                     value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                    placeholder="Content"
-                    className="w-full p-2 text-black mb-4 border border-gray-300 rounded-lg h-32"
+                    onChange={setBody}
+                    placeholder="Write your content here..."
+                    className="mb-4 text-black border border-gray-300 rounded-lg"
+                    modules={{
+                        toolbar: [
+                            [{ 'header': [1, 2, false] }],
+                            ['bold', 'italic', 'underline', 'strike'],
+                            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                            ['link', 'image', 'emoji'],
+                            [{ 'font': [] }, { 'align': [] }],
+                            ['clean']
+                        ]
+                    }}
                 />
                 <input
                     value={tags}
